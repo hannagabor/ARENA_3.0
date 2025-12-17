@@ -1935,7 +1935,7 @@ class Generator(nn.Module):
                 the number of channels in the image (3 for RGB, 1 for grayscale)
             hidden_channels:
                 the number of channels in the hidden layers of the generator (starting closest
-                to the middle of the DCGAN and going outward, i.e. in chronological order for
+                to the middle of the DCGAN and going outward, i.e. in reversed chronological order for
                 the generator)
         """
         n_layers = len(hidden_channels)
@@ -2018,7 +2018,7 @@ class Discriminator(nn.Module):
                 the number of channels in the image (3 for RGB, 1 for grayscale)
             hidden_channels:
                 the number of channels in the hidden layers of the discriminator (starting
-                closest to the middle of the DCGAN and going outward, i.e. in reverse-
+                closest to the middle of the DCGAN and going outward, i.e. in
                 chronological order for the discriminator)
         """
         n_layers = len(hidden_channels)
