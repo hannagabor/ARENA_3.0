@@ -519,6 +519,7 @@ class Discriminator(nn.Module):
                 out_features=1,
                 bias=False,
             ),
+            Sigmoid(),
         )
 
     def forward(self, x: Tensor) -> Tensor:
