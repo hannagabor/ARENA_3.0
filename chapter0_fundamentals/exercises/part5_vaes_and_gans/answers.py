@@ -546,8 +546,8 @@ class DCGAN(nn.Module):
         self.hidden_channels = hidden_channels
         self.netD = Discriminator(img_size, img_channels, hidden_channels).to(device)
         self.netG = Generator(latent_dim_size, img_size, img_channels, hidden_channels).to(device)
-        initialize_weights(self.netD)
-        initialize_weights(self.netG)
+        # initialize_weights(self.netD)
+        # initialize_weights(self.netG)
 
 
 def initialize_weights(model: nn.Module) -> None:
@@ -695,7 +695,6 @@ class DCGANTrainer:
                 )
                 if self.step % self.args.log_every_n_steps == 0:
                     self.log_samples()
-                print(loss_D, loss_G)
 
         if self.args.use_wandb:
             wandb.finish()
@@ -826,7 +825,7 @@ if MAIN:
     trainer = DCGANTrainer(args)
     dcgan = trainer.train()
 
-    # # Arguments for MNIST
+    # Arguments for MNIST
     # args = DCGANArgs(
     #     dataset="MNIST",
     #     hidden_channels=[12, 24],
